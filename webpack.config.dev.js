@@ -11,21 +11,21 @@ module.exports = merge(baseConfig, {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
-    publicPath: '/'
+    publicPath: '/',
   },
 
   plugins: [
     new HtmlWebPackPlugin({
-      template: './index.html'
+      template: './index.html',
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
     contentBase: './public',
     hot: true,
     port: 3001,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
 });

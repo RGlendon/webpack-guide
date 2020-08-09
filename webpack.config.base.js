@@ -10,15 +10,15 @@ module.exports = {
           options: {
             presets: [
               '@babel/preset-react',
-              ['@babel/env', {targets: {browsers: ['last 7 versions']}}]
-            ]
-          }
-        }
+              ['@babel/env', { targets: { browsers: ['last 7 versions'] } }],
+            ],
+          },
+        },
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ]
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
 };

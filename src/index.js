@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter} from 'react-router-dom';
+import {renderRoutes} from 'react-router-config';
 
-import './style.scss';
+import Routes from "./Routes";
 
-ReactDOM.render(<div>hello</div>, document.querySelector('#root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <div>{renderRoutes(Routes)}</div>
+  </BrowserRouter>,
+  document.querySelector('#root'));

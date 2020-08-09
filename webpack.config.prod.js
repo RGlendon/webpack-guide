@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
   output: {
     filename: 'bundle.[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
   },
   optimization: {
     minimizer: [
@@ -24,24 +24,24 @@ module.exports = merge(baseConfig, {
         uglifyOptions: {
           compress: false,
           ecma: 6,
-          mangle: true
+          mangle: true,
         },
-        sourceMap: false
-      })
-    ]
+        sourceMap: false,
+      }),
+    ],
   },
   plugins: [
     new CompressionPlugin(),
     new HtmlWebPackPlugin({
-      template: './index.html'
+      template: './index.html',
     }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    })
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
   ],
 
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
 });
