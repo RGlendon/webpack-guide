@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "SPA,SSR",
   "scripts": {
+    "start": "node ./dist/server.js",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js --mode development",
-    "build": "webpack -p --config ./webpack.config.prod.js --mode production",
+    "build:spa": "webpack -p --config webpack.config.spa.js --mode production",
+    "build:client": "webpack -p --config webpack.config.client.js --mode production",
+    "build:server": "webpack -p --config webpack.config.server.js --mode production",
     "serve": "serve ./dist"
   },
   "repository": {
@@ -36,7 +39,9 @@
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.6.1",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.10.0",
     "node-sass": "^4.12.0",
+    "null-loader": "^4.0.0",
     "sass-loader": "^7.1.0",
     "serve": "^11.1.0",
     "style-loader": "^0.23.1",
@@ -44,17 +49,21 @@
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^2.5.2",
+    "webpack-stats-plugin": "^0.3.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "axios": "^0.19.2",
+    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "serialize-javascript": "^4.0.0"
   }
 }

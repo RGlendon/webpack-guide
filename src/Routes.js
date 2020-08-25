@@ -7,12 +7,12 @@ import Todo from "./pages/Todo";
 
 export default [
   {
-    component: App,
+    ...App,
     routes: [
-      { component: Home, path: '/', exact: true },
-      { component: About, path: '/about' },
-      { component: Todo, path: '/todo' },
-      { component: NotFound },
+      { ...Home, path: '/', exact: true },
+      { ...About, path: '/about' },
+      { ...Todo, path: '/todo' },
+      { ...NotFound },
     ]
   }
 ]

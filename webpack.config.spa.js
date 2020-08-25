@@ -10,7 +10,7 @@ const baseConfig = require('./webpack.config.base');
 
 module.exports = merge(baseConfig, {
   mode: 'production',
-  entry: './src/index.js',
+  entry: './src/client.js',
   output: {
     filename: 'bundle.[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -29,6 +29,18 @@ module.exports = merge(baseConfig, {
         sourceMap: false,
       }),
     ],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        // style-loader собираент стили в один файл, для ssr это не подойдет (берется объект window, работа с DDOM и тп.
+        // на сервера объекта window быть не должно, поставим другой плагин, который будет стили выбирать и создавать
+        // отдельный css-файл.
+        // Будем исп. MiniCssExtractPlugin в webpack.config.client вместо 'style-loader'
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ]
   },
   plugins: [
     new CompressionPlugin(),

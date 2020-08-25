@@ -11,10 +11,17 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : compose;
 
+// указываем, чтобы preloaded state загрузался из redux, и подгружаем его вместо undefined (24 строка)
+let state;
+if (typeof window !== 'undefined') {
+  state = window.__PRELOADED_STATE__;
+  delete window.__PRELOADED_STATE__;
+}
 
 const store = createStore(
   reducers,
-  undefined,
+  // undefined,
+  state,
   composeEnhancers(applyMiddleware(...middleware)));
 
 
